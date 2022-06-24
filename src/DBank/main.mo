@@ -1,8 +1,7 @@
 import Debug "mo:base/Debug"
 
 actor DBank {
-  var currentValue = 300; 
-  currentValue := 100; 
+  stable var currentValue: Nat = 300; 
 
   let id = 293843023482039842;
 
@@ -11,6 +10,20 @@ actor DBank {
   public func topUp(amount: Nat){
     currentValue += amount;
     Debug.print(debug_show(currentValue));
+  };
+
+  public func withdraw(amount: Nat){
+    let tempValue: Int = currentValue - amount;
+    if(tempValue >= 0) {
+      currentValue -= amount;
+      Debug.print(debug_show(currentValue));
+    } else {
+      Debug.print("Not enough funds available to complete transaction.")
+    }
+  };
+
+  public query func checkBalance(): async Nat { // the ': async Nat' ensures the function returns an asyncronous, natural number
+    return currentValue;
   };
 
   // topUp();
