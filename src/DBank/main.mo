@@ -35,8 +35,8 @@ actor DBank {
 
   public func compound() {
     let currentTime = Time.now(); 
-    let timeElapsedS = (currentTime - startTime) / 1000000000; // 1 billion nano-seconds in a second
-    currentValue := currentValue * (1.01 ** Float.fromInt(timeElapsedS)); // ** is the 'to the power of' in Motoko
+    let timeElapsed = (currentTime - startTime) / 1000000000; // 1 billion nano-seconds in a second
+    currentValue := currentValue * (1.000001 ** Float.fromInt(timeElapsed)); // ** is the 'to the power of' in Motoko
     startTime := currentTime;
   };
 }
