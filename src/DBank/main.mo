@@ -1,3 +1,8 @@
+// App located on localhost:8080
+// Start the dfx server in a terminal window: dfx start
+// In a separate terminal window from where you started the app, deploy the app (needs to be done everytime there is a change to the code): dfx deploy
+// Once the deploy finishes, you can start the app with npm: npm start
+
 import Debug "mo:base/Debug";
 import Time "mo:base/Time";
 import Float "mo:base/Float";
